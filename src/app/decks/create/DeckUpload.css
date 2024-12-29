@@ -1,0 +1,267 @@
+.preview-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: bold;
+
+    border-radius: 1rem;
+    box-shadow: inset 0 0 10px var(--shadow-color);
+}
+
+/* PREVIEW GRID */
+.preview-grid {
+    border: 1px var(--background) solid;
+    opacity: 0.5;
+
+    column-span: 1;
+    row-span: 1;
+}
+.preview-grid.ignored {
+    background: var(--background);
+}
+.preview-grid.back-highlight {
+    background: linear-gradient(to top, var(--accent-blend), var(--accent-secondary));
+}
+
+/* CUSTOM FILE INPUTS */
+.button {
+    color: var(--foreground);
+    font-weight: bold;
+
+    background: transparent;
+    border: 2px var(--foreground) solid;
+    border-radius: 1rem;
+    box-shadow: 4px 4px 4px var(--shadow-color);
+
+    cursor: pointer;
+
+    width: fit-content;
+    padding: 7px 15px;
+}
+.button:hover {
+    background: var(--foreground);
+    color: var(--background);
+}
+.empty-button {
+    color: var(--shadow-color);
+    font-weight: bold;
+
+    background: var(--background);
+    border-radius: 1rem;
+    box-shadow: inset 0 0 10px var(--shadow-color);
+
+    width: fit-content;
+    padding: 9px 17px;
+
+    user-select: none;
+}
+
+/* CUSTOM NUMBER INPUTS */
+input[type=number] {
+    color: var(--foreground);
+    font-weight: normal;
+
+    padding: 5px;
+
+    background: var(--background);
+    border-radius: 0.5rem;
+    box-shadow: inset 0 0 10px var(--shadow-color);
+
+    &:focus {
+        outline: transparent;
+    }
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+/* CUSTOM CHECKBOX */
+.container { /* The container */
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.container input { /* Hide the browser's default checkbox */
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+.checkmark { /* Create a custom checkbox */
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+
+    background: var(--background);
+    border-radius: 0.5rem;
+    box-shadow: inset 0 0 10px var(--shadow-color);
+}
+.container:hover input ~ .checkmark { /* On mouse-over, add a grey background color */
+    background-color: var(--shadow-color);
+}
+.container input:checked ~ .checkmark { /* When the checkbox is checked, add a blue background */
+    background: white;
+    box-shadow: none;
+}
+.checkmark:after { /* Create the checkmark/indicator (hidden when not checked) */
+    content: "";
+    position: absolute;
+    display: none;
+}
+.container input:checked ~ .checkmark:after { /* Show the checkmark when checked */
+    display: block;
+}
+.container .checkmark:after { /* Style the checkmark/indicator */
+    left: 10px;
+    top: 6px;
+    width: 5px;
+    height: 10px;
+    border: solid var(--background);
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+/* CUSTOM SLIDER */
+.slider {
+    -webkit-appearance: none;
+    outline: none;
+
+    width: 100%;
+    height: 30px;
+    padding: 2px;
+
+    background: var(--background);
+    border-radius: 0.5rem;
+    box-shadow: inset 0 0 10px var(--shadow-color);
+
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+
+    overflow: hidden;
+}
+.slider:hover {
+    opacity: 1;
+}
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 26px;
+    height: 26px;
+
+    background: var(--background);
+    border-radius: 0.5rem;
+    box-shadow: 0px 0px 4px var(--shadow-color);
+
+    cursor: pointer;
+}
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #04AA6D;
+    cursor: pointer;
+}
+
+/* CUSTOM COLOR PICKER */
+.color-container {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.color-container input[type="color"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+.color-display {
+    width: 25px;
+    height: 25px;
+
+    background: var(--background);
+    border-radius: 50%;
+    box-shadow: 0px 0px 4px var(--shadow-color);
+}
+
+/* BORDER SIZE BUTTON */
+.border-button {
+    width: 25px;
+    height: 25px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background: var(--background);
+    border-radius: 0.5rem;
+    box-shadow: 0px 0px 4px var(--shadow-color);
+}
+.border-button.selected {
+    box-shadow: inset 0 0 10px var(--shadow-color);
+}
+.border-display {
+    width: 5px;
+    height: 5px;
+    border: solid white;
+    border-radius: 1em;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+/* GRADIENT TEXT */
+.gradient-text {
+    font-weight: bold;
+    color: transparent;
+    background: linear-gradient(-45deg, var(--accent-primary), var(--accent-blend), var(--accent-secondary));
+    -webkit-background-clip: text;
+}
+
+/* FLIP CARD */
+.flip-card {
+    background-color: transparent;
+    perspective: 1000px;
+}
+.flip-card-inner { /* This container is needed to position the front and back side */
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+.flip-card:hover .flip-card-inner { /* Do a horizontal flip when you move the mouse over the flip box container */
+    transform: rotateY(180deg);
+}
+.flip-card-front, .flip-card-back { /* Position the front and back side */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+}
+.flip-card-back { /* Style the back side */
+    transform: rotateY(180deg);
+}
+

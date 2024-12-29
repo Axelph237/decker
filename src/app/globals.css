@@ -3,14 +3,23 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #C8C8D0;
+  --foreground: #1a1920;
+
+  --accent-primary: #843B62;
+  --accent-secondary: #FFB997;
+  --accent-blend: #F67E7D;
+  --accent-gradient: linear-gradient(to left, var(--accent-primary), var(--accent-blend), var(--accent-secondary));
+
+  box-sizing: border-box;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #1a1920;
+    --foreground: white;
+
+    --shadow-color: #09090e;
   }
 }
 

@@ -1,0 +1,78 @@
+.card-container {
+    position: absolute;
+}
+.card-container.hand {
+    transform: translate(-50%, -50%);
+}
+
+.card {
+    position: relative;
+
+    width: fit-content;
+    height: fit-content;
+
+    border-radius: 1rem;
+
+    background: linear-gradient(black, black) padding-box, /* Fake gradient */
+    linear-gradient(-45deg, var(--accent-primary), var(--accent-blend), var(--accent-secondary)) border-box;
+    border: 2px transparent solid;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    object-fit: cover;
+    overflow: hidden;
+
+    user-select: none;
+}
+
+.card.hand:hover {
+    background: linear-gradient(black, black) padding-box, /* Fake gradient */
+    linear-gradient(to left, var(--accent-primary), var(--accent-blend), var(--accent-secondary), var(--accent-blend), var(--accent-primary)) border-box;
+    border: 2px transparent solid;
+    animation: 30s cycle-border alternate infinite;
+}
+
+.card.hand:hover {
+    top: -15%;
+    animation: 75ms ease-out forwards slide-up;
+}
+
+.card.hand:not(:hover) {
+    animation: 50ms ease-in forwards slide-down;
+}
+
+@keyframes cycle-border {
+    0% { background-position: -1000px -1000px; }
+    100% { background-position: 1000px 1000px; }
+}
+
+@keyframes slide-up {
+    from { top: 0; }
+    to { top: -15%; }
+}
+
+@keyframes slide-down {
+    from { top: -15%; }
+    to { top: 0; }
+}
+
+.card-img {
+    width: 100%;
+    height: 100%;
+}
+
+.deck-shadow {
+    position: relative;
+
+    width: fit-content;
+    height: fit-content;
+
+    border-radius: 1rem;
+
+    background: linear-gradient(-45deg, var(--accent-primary), var(--accent-blend), var(--accent-secondary)) padding-box, /* Fake gradient */
+    linear-gradient(-45deg, var(--accent-primary), var(--accent-blend), var(--accent-secondary)) border-box;
+    border: 2px transparent solid;
+}
